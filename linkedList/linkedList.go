@@ -99,18 +99,42 @@ func (l *LinkedList[T]) Get(index int) *node[T] {
 
 }
 
+func (l *LinkedList[T]) GetValueAtAnyIndex(index int) T {
+	var null T
+	if index > l.length || index < 0 {
+		return null
+	} else {
+		temp := l.head
+		for i := 0; i < index; i++ {
+			temp = temp.next
+		}
+		return temp.value
+	}
+
+}
+
 func (l *LinkedList[T]) Unshift(value T) {
 	node := newNode(value)
-	node.next = l.head
-	l.head = node
+	if l.head == nil {
+		l.head = node
+		l.tail = node
+	} else {
+		node.next = l.head
+		l.head = node
+
+	}
 	l.length++
 }
 
-func (l *LinkedList[T]) Shift() {
+func (l *LinkedList[T]) Shift() T {
+	var val T
 	if l.head != nil {
+		temp := l.head
 		l.head = l.head.next
 		l.length--
+		return temp.value
 	}
+	return val
 }
 
 func (l *LinkedList[T]) Insert(index int, value T) {

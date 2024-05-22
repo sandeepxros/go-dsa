@@ -1,27 +1,15 @@
 package main
 
-import "github.com/sandeepxros/go-dsa/doublyLinkedList"
+import (
+	"github.com/sandeepxros/go-dsa/stack"
+)
 
 func main() {
-	dbList := doublyLinkedList.New(44)
+	var st stack.Stack[int]
 	for i := 0; i < 10; i++ {
-		dbList.Push(i)
+		st.Push(i)
 	}
-	dbList.Print(func(val int) {
-		print(val, "     ")
+	st.ForEach(func(data int) {
+		println(data)
 	})
-	println()
-	dbList.PrintReverse(func(val int) {
-		print(val, "     ")
-	})
-
-	for dbList.Len() > 0 {
-		dbList.Pop()
-	}
-
-	dbList.PrintReverse(func(val int) {
-		print(val, "     ")
-	})
-
-	println("list len", dbList.Len())
 }
