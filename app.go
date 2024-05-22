@@ -1,8 +1,6 @@
 package main
 
-import (
-	linkedlist "example.com/dsa/linkedList"
-)
+import linkedlist "github.com/sandeepxros/go-dsa/linkedList"
 
 func main() {
 	list := linkedlist.New(55)
