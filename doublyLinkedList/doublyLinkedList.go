@@ -120,12 +120,17 @@ func (l *LinkedList[T]) Unshift(value T) {
 	l.length++
 }
 
-func (l *LinkedList[T]) Shift() {
+func (l *LinkedList[T]) Shift() T {
+	var null T
 	if l.head != nil {
+		val := l.head.value
 		l.head = l.head.next
 		l.head.prev = nil
 		l.length--
+		return val
 	}
+
+	return null
 }
 
 func (l *LinkedList[T]) Insert(index int, value T) {
@@ -187,4 +192,8 @@ func (l *LinkedList[T]) GetMiddleNodeValue() T {
 	}
 	return slow.value
 
+}
+
+func (l *LinkedList[T]) GetValueAtAnyIndex(index int) T {
+	return l.Get(index).value
 }

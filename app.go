@@ -1,15 +1,32 @@
 package main
 
 import (
-	"github.com/sandeepxros/go-dsa/stack"
+	"github.com/sandeepxros/go-dsa/queue"
 )
 
 func main() {
-	var st stack.Stack[int]
+	var queue queue.Queue[int]
+
 	for i := 0; i < 10; i++ {
-		st.Push(i)
+		queue.Enque(i)
 	}
-	st.ForEach(func(data int) {
+
+	queue.ForEach(func(data int) {
 		println(data)
 	})
+
+	println("deque-----------------------------___________>>>>>>>>>>>>>>>")
+	println(queue.Dequeue())
+	println(queue.Dequeue())
+	println(queue.Dequeue())
+	println(queue.Dequeue())
+	println(queue.Dequeue())
+	println(queue.Peek())
+
+	println("quwuw-----------------------------___________>>>>>>>>>>>>>>>")
+
+	queue.ForEach(func(data int) {
+		println(data)
+	})
+
 }
