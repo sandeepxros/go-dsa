@@ -1,19 +1,27 @@
 package main
 
-import linkedlist "github.com/sandeepxros/go-dsa/linkedList"
+import "github.com/sandeepxros/go-dsa/doublyLinkedList"
 
 func main() {
-	list := linkedlist.New(55)
-	list.Pop()
+	dbList := doublyLinkedList.New(44)
 	for i := 0; i < 10; i++ {
-		list.Push(i)
+		dbList.Push(i)
 	}
-	println("list len", list.Len())
-
-	list.Print(func(val int) {
-		print(val, "   ")
+	dbList.Print(func(val int) {
+		print(val, "     ")
+	})
+	println()
+	dbList.PrintReverse(func(val int) {
+		print(val, "     ")
 	})
 
-	println()
-	println("middle node of this linked list", list.GetMiddleNodeValue())
+	for dbList.Len() > 0 {
+		dbList.Pop()
+	}
+
+	dbList.PrintReverse(func(val int) {
+		print(val, "     ")
+	})
+
+	println("list len", dbList.Len())
 }
