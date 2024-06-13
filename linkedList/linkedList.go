@@ -195,3 +195,27 @@ func (l *LinkedList[T]) GetMiddleNodeValue() T {
 	return slow.value
 
 }
+
+func (l *LinkedList[T]) GetNthFromLast(n int) T {
+	temp := l.head
+	var hare *node[T]
+
+	i := 1
+
+	for temp != nil {
+		if i == n {
+			hare = temp
+			i = 0
+		}
+		temp = temp.next
+		i += 1
+	}
+	var zeroVal T
+
+	if hare == nil {
+		return zeroVal
+	}
+
+	return hare.value
+
+}

@@ -1,32 +1,23 @@
 package main
 
 import (
-	"github.com/sandeepxros/go-dsa/queue"
+	"fmt"
+
+	avltrees "github.com/sandeepxros/go-dsa/avl-trees"
 )
 
 func main() {
-	var queue queue.Queue[int]
+	avltrees.Root = avltrees.Insert(avltrees.Root, 3)
+	avltrees.Root = avltrees.Insert(avltrees.Root, 9)
 
-	for i := 0; i < 10; i++ {
-		queue.Enque(i)
-	}
+	avltrees.Root = avltrees.Insert(avltrees.Root, 4)
+	avltrees.Print(avltrees.Root)
 
-	queue.ForEach(func(data int) {
-		println(data)
-	})
+	fmt.Println()
 
-	println("deque-----------------------------___________>>>>>>>>>>>>>>>")
-	println(queue.Dequeue())
-	println(queue.Dequeue())
-	println(queue.Dequeue())
-	println(queue.Dequeue())
-	println(queue.Dequeue())
-	println(queue.Peek())
+	avltrees.InorderTravasal(avltrees.Root)
 
-	println("quwuw-----------------------------___________>>>>>>>>>>>>>>>")
-
-	queue.ForEach(func(data int) {
-		println(data)
-	})
-
+	fmt.Println()
 }
+
+//30 42 42 43 48 78 90 90 100
